@@ -1,0 +1,36 @@
+
+// Bootstrap Variables
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
+// Import Bootstrap
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  background: url('../images/idontcare.jpg') no-repeat center center fixed;
+  height:400px;
+  text-align: center;
+  color: white;
+}
+
+.main-nav {
+  display: inline-block;
+  li {
+    display: inline-block;
+    border-bottom: 1px solid gray;
+  }
+}

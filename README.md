@@ -1,1 +1,1 @@
-# 7.4Majestic-Thai
+## 7 4Majestic Thai
