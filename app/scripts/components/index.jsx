@@ -49,5 +49,5 @@ var MenuComponent = React.createClass({
 module.exports = {
   'HoursComponent': HoursComponent,
   'ContactComponent': ContactComponent,
-  'MenuComponent': MenuComponent
+  'MenuComponent': MenuComponent 
 }
