@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 
 var Restaurant = Backbone.Model.extend({
-
+ idAttribute: 'cid'
 });
 
 var RestaurantCollection = Backbone.Collection.extend({
