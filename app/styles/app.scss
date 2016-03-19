@@ -21,8 +21,7 @@ img {
 body {
   background: url('https://images.unsplash.com/32/RgJQ82pETlKd0B7QzcJO_5912578701_92397ba76c_b.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=88b0735c6a08c3714871fd15d344c3ab') no-repeat center center fixed;
   background-color: #ddd;
-  font-family: 'Lovers Quarrel', cursive;
-}
+  font-family: 'Cardo', serif;
 
 li {
   list-style: none;
@@ -34,6 +33,7 @@ header {
   color: white;
   h1{
     font-size: 123px;
+    font-family: 'Lovers Quarrel', cursive;
   }
 }
 
@@ -85,4 +85,16 @@ header {
 
 a {
   cursor: pointer;
+}
+
+.menu-items {
+  font-size: 25px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #001100;
+  opacity: 0.9;
+}
+
+.individual-item {
+  font-size: 60px;
 }
