@@ -23,6 +23,7 @@ var Router = Backbone.Router.extend({
     );
   },
   menupage: function(){
+    ReactDOM.unmountComponentAtNode(document.getElementById('app'))
     ReactDOM.render(
       React.createElement(MenuItemComponent,{collection:restaurantCollection}),
       document.getElementById('app')
