@@ -33,3 +33,4 @@ var Router = Backbone.Router.extend({
 
 module.exports = new Router();
 restaurantCollection.fetch();
+console.log(restaurantCollection);
