@@ -28,10 +28,10 @@ li {
 }
 
 header {
-  height: 400px;
+  height: 200px;
   text-align: center;
   color: white;
-  h1{
+  h2{
     font-size: 123px;
     font-family: 'Lovers Quarrel', cursive;
   }
@@ -93,4 +93,9 @@ header {
 
 a {
   cursor: pointer;
+}
+
+.add-button {
+  float: right;
+  margin: 5px;
 }

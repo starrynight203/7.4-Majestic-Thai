@@ -9,12 +9,17 @@ var models = require('./../models/models');
 var restaurantCollection = new models.RestaurantCollection(menu); // when you pass menu into a collection, it instantiates each object in the menu as a model - if the collection has a model set on it
 
 var HomePage = require('./../components/index.jsx');
-var MenuItemComponent = require('./../components/menu.jsx');
+var MenuItemComponent = require('./../components/menu.jsx').MenuItemComponent;
+console.log(MenuItemComponent)
+
+var CartComponent = require('./../components/menu.jsx').CartComponent;
+var AppetizersComponent = require('./../components/appetizersComponent.jsx').AppetizersComponent;
 
 var Router = Backbone.Router.extend({
   routes:{
     '':'index',
-    'menu':'menupage'
+    'menu':'menupage',
+    'cart': 'cartpage'
   },
   index: function(){
     ReactDOM.render(
@@ -25,12 +30,17 @@ var Router = Backbone.Router.extend({
   menupage: function(){
     ReactDOM.unmountComponentAtNode(document.getElementById('app'))
     ReactDOM.render(
-      React.createElement(MenuItemComponent,{collection:restaurantCollection}),
+      React.createElement(MenuItemComponent,{collection: restaurantCollection}),
       document.getElementById('app')
-    )
+    );
+  },
+  cartpage: function(){
+    ReactDOM.unmountComponentAtNode(document.getElementById('app'))
+    ReactDOM.render(
+      React.createElement(CartComponent),
+      document.getElementById('app')
+    );
   }
 });
 
 module.exports = new Router();
-restaurantCollection.fetch();
-console.log(restaurantCollection);
