@@ -12,7 +12,15 @@ var RestaurantCollection = Backbone.Collection.extend({
   // }
 });
 
+var Cart = Backbone.Model.extend({});
+
+var CartCollection = Backbone.Collection.extend({
+  model: Cart
+});
+
 module.exports = {
   "Restaurant": Restaurant,
-  "RestaurantCollection": RestaurantCollection
+  "RestaurantCollection": RestaurantCollection,
+  'Cart': Cart,
+  'CartCollection': CartCollection
 }

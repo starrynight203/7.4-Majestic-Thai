@@ -3,6 +3,8 @@ var ReactDOM = require('react-dom');
 var $ = require('jquery');
 var Backbone = require('backbone');
 var model = require('./../models/models');
+var LinkedStateMixin = require('react/lib/LinkedStateMixin');
+var Cart = require('./../models/models.js').Cart;
 
 // var MainPageComponent = React.createClass({
 //   mixins: [Backbone.React.Component.mixin],
@@ -10,13 +12,32 @@ var model = require('./../models/models');
 // });
 
 var MenuItemComponent = React.createClass({
+  mixins: [LinkedStateMixin],
+
   handleClick: function(model, e){
     console.log(model);
   },
-  cartClick: function(e){
-    e.preventDefault();
-    Backbone.history.navigate('cart', {trigger: true});
-  },
+  addToCart: function(product){
+
+   // 1. Create a new cart object
+   var cart = new Cart();
+   var self = this;
+   cart.set({
+     model: model,
+     item: self.state.item,
+     price: Number(self.state.price)
+   });
+   // 3. Save the cart object
+   cart.save(null, {
+       success: function(results){
+         console.log(results);
+        //  Backbone.history.navigate('cart', {trigger: true});
+       },
+       error: function(model, err){
+         console.log("error ", err);
+       }
+   });
+ },
   render: function(){
     console.log(this.props);
     var self = this;
@@ -29,11 +50,11 @@ var MenuItemComponent = React.createClass({
           <span>{model.get('description')}</span>
           <a onClick={self.handleClick.bind(self, model)}><span>{model.get('price')}</span></a>
           <span>{model.get('category')}</span>
-          <button className="btn btn-default add-button" type="submit">Add</button>
+          <button onClick={self.addToCart.bind(self, model)} className="btn btn-default add-button" type="submit">Add</button>
           </div>
 
           <div className="goestocart">
-            <button className="btn btn-default" type="submit" onClick={self.cartClick}>Go to Cart</button>
+            <button className="btn btn-default" type="submit"><a href="#cart">Go to Cart</a></button>
           </div>
         </div>
 
